@@ -102,7 +102,7 @@ def update_posts(id:int,post:schemas.PoseCreate,db:Session=Depends(get_db),
            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"post with id {id} not found")
     # cursor.execute("""select * from posts""")
     # psts=cursor.fetchall()
-    if post.owner_id!=oauth2.getcurusr.id:
+    if upost.owner_id!=user_id.id:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
                             detail=f"NOT AUTHORISED TO PERFORM REQUESTED ACTION")
     
