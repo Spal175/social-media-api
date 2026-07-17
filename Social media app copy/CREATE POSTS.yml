@@ -1,0 +1,24 @@
+info:
+  name: CREATE POSTS
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: https://social-media-api-5z7m.onrender.com/posts/createposts
+  body:
+    type: json
+    data: |-
+      {
+        "title": "my posts :",
+        "content": "content of my post"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3ODI5NjkyNjV9.pq4ebeBB-81o-alwRpjH0cwSFsxsqgblVie6aM6JJ6I
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

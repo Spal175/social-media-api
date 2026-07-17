@@ -26,3 +26,7 @@ app.include_router(posts.router)
 app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(votes.router)
+
+@app.get("/")
+def root():
+    return {"message":"welcome to this social media app! Use postman or Bruno to test this app,Bruno-collection is uploaded on Git"}

@@ -1,0 +1,17 @@
+info:
+  name: GET POSTS
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://social-media-api-5z7m.onrender.com/posts
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE3ODI5Njk2OTV9.ErnaeJIADl_iuNxMKwDuIWpb6Hpmi4zQ-0RgdRkRmj0
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

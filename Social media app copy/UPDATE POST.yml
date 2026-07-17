@@ -1,0 +1,25 @@
+info:
+  name: UPDATE POST
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: https://social-media-api-5z7m.onrender.com/posts/4
+  body:
+    type: json
+    data: |-
+      {
+          "title":"updated title of mypost",
+          "content":"updated content of my post",
+          "published":true
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3ODI5NjkwNjh9.ryRYsDx64opt275Ffhv9V9lsmmsUTDhYAZ4_NPZiIgY
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

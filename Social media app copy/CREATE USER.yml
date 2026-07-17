@@ -1,0 +1,22 @@
+info:
+  name: CREATE USER
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: https://social-media-api-5z7m.onrender.com/users
+  body:
+    type: json
+    data: |-
+      {
+        "email":"demomail@gmail.com",
+        "password":"demopwd"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
