@@ -23,7 +23,7 @@ TestingSessionLocal = sessionmaker(
     autocommit=False, autoflush=False, bind=engine)
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def session():
     print("my session fixture ran")
     Base.metadata.drop_all(bind=engine)
@@ -35,7 +35,7 @@ def session():
         db.close()
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def client(session):
     def override_get_db():
 
@@ -46,7 +46,7 @@ def client(session):
     app.dependency_overrides[get_db] = override_get_db
     yield TestClient(app)
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def testusr(client):
     res=client.post("/users/",json={"email":"testmail@gmail.com","password":"pass123"})
     new_user= userout(**res.json())
@@ -65,7 +65,8 @@ def authorized_client(client,token):
         "Authorization": f"bearer {token}"
     }
 
-    return client
+    yield client
+    client.headers.pop("Authorization", None)
 
 @pytest.fixture
 def test_posts(testusr, authorized_client):
