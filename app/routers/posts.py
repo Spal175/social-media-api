@@ -90,7 +90,7 @@ def delete_posts(id:int,db:Session=Depends(get_db),user_id:int =Depends(oauth2.g
 
 
 
-@router.put("/{id}")
+@router.put("/{id}",response_model=schemas.Post)
 def update_posts(id:int,post:schemas.PoseCreate,db:Session=Depends(get_db),
                  user_id:int =Depends(oauth2.getcurusr)):
     # cursor.execute("""update posts set title=%s, content=%s,published=%s where id = %s returning *""",(post.title,post.content,post.published,str(id),))
