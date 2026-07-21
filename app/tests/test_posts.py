@@ -64,3 +64,18 @@ def test_update_post(authorized_client, testusr, testposts2):
     assert res.status_code == 200
     assert updated_post.title == data['title']
     assert updated_post.content == data['content']
+
+def test_delete_post_success(authorized_client, testusr, testposts2):
+    res = authorized_client.delete(
+        f"/posts/{testposts2[0].id}")
+
+    assert res.status_code == 204
+
+
+def test_delete_post_non_exist(authorized_client, testusr, testposts2):
+    res = authorized_client.delete(
+        f"/posts/8000000")
+
+    assert res.status_code == 404
+
+

@@ -1,0 +1,213 @@
+import streamlit as st
+from PIL import Image
+from streamlit_option_menu import option_menu
+
+st.set_page_config(
+    page_title="Soudhriz Pal",
+    page_icon="💻",
+    layout="wide"
+)
+
+# ---------------- Sidebar ---------------- #
+
+with st.sidebar:
+
+    selected = option_menu(
+        menu_title="Portfolio",
+        options=[
+            "Home",
+            "About",
+            "Skills",
+            "Projects",
+            "Certifications",
+            "Internship",
+            "Contact"
+        ],
+        icons=[
+            "house",
+            "person",
+            "cpu",
+            "code-slash",
+            "award",
+            "briefcase",
+            "envelope"
+        ],
+        default_index=0
+    )
+
+# ---------------- Home ---------------- #
+
+if selected == "Home":
+
+    col1, col2 = st.columns([1,2])
+
+    with col1:
+        image = Image.open("profile.jpg")
+        st.image(image, width=250)
+
+    with col2:
+
+        st.title("Soudhriz Pal")
+
+        st.subheader("Computer Engineering Student")
+
+        st.write("""
+I am a Computer Engineering student passionate about Backend Development,
+Python, FastAPI, Databases and AI.
+
+Currently building scalable backend applications and continuously learning
+cloud technologies and software engineering.
+""")
+
+        st.markdown("""
+- 📍 India
+- 💻 Backend Developer
+- 🚀 FastAPI Enthusiast
+- ☁ Learning AWS
+""")
+
+# ---------------- About ---------------- #
+
+elif selected == "About":
+
+    st.title("About Me")
+
+    st.write("""
+I enjoy building backend systems using Python.
+
+My primary interests are:
+
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- REST APIs
+- Authentication
+- Database Design
+- AI Applications
+
+I enjoy solving real-world engineering problems while continuously improving
+my software engineering skills.
+""")
+
+# ---------------- Skills ---------------- #
+
+elif selected == "Skills":
+
+    st.title("Technical Skills")
+
+    st.subheader("Languages")
+
+    st.progress(90)
+    st.write("Python")
+
+    st.progress(70)
+    st.write("C++")
+
+    st.subheader("Backend")
+
+    st.write("""
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- REST APIs
+- JWT Authentication
+""")
+
+    st.subheader("Tools")
+
+    st.write("""
+- Git
+- GitHub
+- VS Code
+- Postman
+- Linux
+""")
+
+# ---------------- Projects ---------------- #
+
+elif selected == "Projects":
+
+    st.title("Projects")
+
+    st.subheader("1. Social Media API")
+
+    st.write("""
+Backend API built using
+
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- JWT Authentication
+- CRUD Operations
+- Voting System
+- Testing using Pytest
+""")
+
+    st.subheader("2. TIET Campus Map")
+
+    st.write("""
+Campus navigation application.
+
+Tech Stack:
+
+- FastAPI
+- Python
+- Leaflet
+- PostgreSQL
+""")
+
+# ---------------- Certifications ---------------- #
+
+elif selected == "Certifications":
+
+    st.title("Certifications")
+
+    st.write("🏅 Oracle AI Foundations Associate")
+
+    st.write("🏅 OpenAI Learning Certificates")
+
+# ---------------- Internship ---------------- #
+
+elif selected == "Internship":
+
+    st.title("Engineering Internship")
+
+    st.subheader("Rashmi Metaliks Limited")
+
+    st.write("""
+Worked with the IT Department.
+
+Exposure to:
+
+- Networking
+- Enterprise IT Infrastructure
+- System Administration
+- Virtualization
+- Cybersecurity Fundamentals
+- SQL Basics
+- Firewalls
+- WAN/LAN
+""")
+
+# ---------------- Contact ---------------- #
+
+elif selected == "Contact":
+
+    st.title("Contact")
+
+    st.write("📧 your_email@gmail.com")
+
+    st.write("GitHub")
+
+    st.write("https://github.com/yourusername")
+
+    st.write("LinkedIn")
+
+    st.write("https://linkedin.com/in/yourprofile")
+
+    with open("resume.pdf", "rb") as pdf:
+        st.download_button(
+            "Download Resume",
+            pdf,
+            file_name="Resume.pdf"
+        )
