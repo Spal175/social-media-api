@@ -32,3 +32,5 @@ current_user : int =Depends(oauth2.getcurusr),):
         vteqry.delete(synchronize_session=False)
         db.commit()
         return {"message":'successfully deleted vote!'}
+    
+

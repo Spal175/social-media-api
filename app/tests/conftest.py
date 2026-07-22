@@ -3,6 +3,7 @@ import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+import test
 from app.main import app
 from app.config import settings
 from app.database import get_db
@@ -132,4 +133,9 @@ def testposts2(testusr, session):
     posts = session.query(models.Post).all()
     return posts    
 
+@pytest.fixture()
+def test_vote(testposts2, session, testusr):
+    new_vote = models.Votes(post_id=testposts2[3].id, user_id=testusr['id'])
+    session.add(new_vote)
+    session.commit()
 
